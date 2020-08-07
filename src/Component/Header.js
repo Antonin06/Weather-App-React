@@ -6,7 +6,7 @@ import '../Weather.css';
 const Header = () => {
   return(
 
-<header class="App-header"><img src="../logo_transparent.png" class="App-logo" alt="logo"></img></header>
+<header className="App-header"><img src="../logo_transparent.png" className="App-logo" alt="logo"></img></header>
 
 )}
 
