@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import './Weather.css';
+import IconsTable from './Component/WeatherIcons';
+
 
 const api = {
   key: "2ad44f2aedcff961d781de55927859c8",
@@ -32,16 +34,16 @@ const search = evt => {
           <div className="search-box">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Votre Ville..."
             onChange={e => setQuery(e.target.value)}
             value={query}
             onKeyPress={search}
           />
         </div>
-            <span className="card-title">{weather.name}</span>
-            <p><img src="../sun.svg"></img></p>
+            <span className="card-title">{weather.name}{weather.sys && ', ' + weather.sys?.country}</span>
+            <p><img src={IconsTable[weather.weather && weather.weather[0].id]}></img></p>
             <span className="temperature">{weather.main && weather.main.temp.toFixed(1) + '°C'}</span>
-          <div className="wind">{weather.wind && 'Vent '+ weather.wind.speed.toFixed(1) + 'km/h'} {weather.wind && weather.wind.deg.toFixed(0) + '°'}</div>
+          <div className="wind">{weather.wind && 'Vent '+ weather.wind.speed.toFixed(1) + 'km/h'}{weather.wind && ' (' + weather.wind.deg.toFixed(0) + '°)'}</div>
           </div>
           <div className="card-action">
             <a href="#">Thursday</a>
