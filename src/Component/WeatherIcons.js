@@ -1,4 +1,3 @@
-import React from 'react';
 import IconStrom from '../Icons/storm.svg';
 import IconThunder from '../Icons/thunder.svg';
 import IconRain from '../Icons/rainy.svg';

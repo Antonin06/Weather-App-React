@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 import '../Weather.css';
-import IconsTable from './WeatherIcons';
 
 const Days = (props) => {
 return(
@@ -9,7 +8,7 @@ return(
   <span className="card-title">
     {props.name}{props.country}
    </span>
-   <p><img src={props.icons}></img></p>
+   <p><img src={props.icons} alt={props.icons}></img></p>
   <span className="temperature">
     {props.temp}
   </span>

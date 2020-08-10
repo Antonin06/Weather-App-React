@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "./Weather.css";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Component/Header";
-import IconsTable from "./Component/WeatherIcons";
 
 const api = {
   key: "2ad44f2aedcff961d781de55927859c8",
@@ -21,14 +19,14 @@ const Weather = () => {
         .then((result) => {
           setCurrent(result);
           setQuery("");
-          console.log(result);
+          // console.log(result);
           search2(result);
         });
     }
   };
 
   const search2 = (result) => {
-    console.log(result);
+    // console.log(result);
 
     fetch(
       `${api.base}onecall?lat=${result.coord.lat}&lon=${result.coord.lon}&exclude=hourly,minutely,current&appid=${api.key}`
@@ -37,7 +35,7 @@ const Weather = () => {
       .then((result) => {
         setWeather(result);
         setQuery("");
-        console.log(result);
+        // console.log(result);
       });
   };
 
@@ -54,7 +52,7 @@ const Weather = () => {
                 <input
                   type="text"
                   placeholder="Votre Ville..."
-                  onChange={(e) => setQuery(e.target.value)}
+                   onChange={(e) => setQuery(e.target.value)}
                   value={query}
                   onKeyPress={search}
                 />
