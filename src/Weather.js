@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import "./Weather.css";
 import Header from "./Component/Header";
+import Clock from "./Component/Clock";
 
 const api = {
   key: "2ad44f2aedcff961d781de55927859c8",
@@ -9,8 +10,8 @@ const api = {
 };
 const Weather = () => {
   const [query, setQuery] = useState("");
-  const [current, setCurrent] = useState({});
-  const [weather, setWeather] = useState({});
+  const [current, setCurrent] = useState([]);
+  const [weather, setWeather] = useState([]);
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -39,6 +40,18 @@ const Weather = () => {
       });
   };
 
+  function hidden() {
+    if(current.length === 0){
+      return(
+        <Clock />
+      )
+    }else{
+      return(
+        <Header current={current}
+                weather={weather}/>
+      )
+  }}
+
   return (
     <>
       <header className="App-header">
@@ -57,13 +70,14 @@ const Weather = () => {
                   onKeyPress={search}
                 />
               </div>
-              <Header current={current}
-                      weather={weather}/>
+              {hidden()}
             </div>
           </div>
         </div>
       </div>
     </>
+
   );
 };
+
 export default Weather;

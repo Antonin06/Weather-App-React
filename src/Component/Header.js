@@ -31,10 +31,8 @@ const Header = (props) => {
         <Link to="/96h">{d96 && d96.getUTCDate()+"/"}{d96 && d96.getUTCMonth()+1}</Link>
         <Link to="/120h">{d120 && d120.getUTCDate()+"/"}{d120 && d120.getUTCMonth()+1}</Link>
         </>
-      )
+      )}}
 
-    }
-  }
 
   return(
     <Router>
